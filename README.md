@@ -22,7 +22,7 @@ A modern, interactive chess game built with vanilla HTML, CSS, and JavaScript. P
 - A local web server (optional, but recommended for development)
 
 ### Access
-- Public Domain: chess-algorithm-rythm.vercel.app
+- Public Domain: `chess-algorithm-rythm.vercel.app`
 
 ### Installation
 
