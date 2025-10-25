@@ -25,8 +25,8 @@ A modern, interactive chess game built with vanilla HTML, CSS, and JavaScript. P
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/chess-game.git
-   cd chess-game
+   git clone https://github.com/JummyJoeJackson/chess-algorithm.git
+   cd chess-algorithm
    ```
 
 2. **Open the game**
@@ -93,7 +93,7 @@ Example integration points are marked with comments in the code.
 
 1. Go to your repository Settings → Pages
 2. Select your branch (usually `main`) and root folder
-3. Save - your site will be live at `username.github.io/chess-game`
+3. Save - your site will be live at `username.github.io/chess-algorithm`
 
 ## 🛠️ Technologies Used
 
@@ -106,10 +106,6 @@ Example integration points are marked with comments in the code.
 ## 📝 Future Enhancements
 
 - [ ] AI opponent integration
-- [ ] Checkmate and stalemate detection
-- [ ] En passant capture
-- [ ] Castling support
-- [ ] Pawn promotion
 - [ ] Game save/load functionality
 - [ ] Multiplayer support
 - [ ] Timer/clock functionality
@@ -130,7 +126,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-Your Name - [@JummyJoeJackson](https://github.com/JummyJoeJackson)
+Diego Gonzalez - [@JummyJoeJackson](https://github.com/JummyJoeJackson)
 
 ## 🙏 Acknowledgments
 
