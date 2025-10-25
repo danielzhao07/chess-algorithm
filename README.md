@@ -21,6 +21,9 @@ A modern, interactive chess game built with vanilla HTML, CSS, and JavaScript. P
 - A modern web browser (Chrome, Firefox, Safari, Edge)
 - A local web server (optional, but recommended for development)
 
+### Access
+- Public Domain: chess-algorithm-rythm.vercel.app
+
 ### Installation
 
 1. **Clone the repository**
