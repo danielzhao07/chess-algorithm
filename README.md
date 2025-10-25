@@ -21,6 +21,9 @@ A modern, interactive chess game built with vanilla HTML, CSS, and JavaScript. P
 - A modern web browser (Chrome, Firefox, Safari, Edge)
 - A local web server (optional, but recommended for development)
 
+### Access
+- Public Domain: `chess-algorithm-rythm.vercel.app`
+
 ### Installation
 
 1. **Clone the repository**
@@ -42,58 +45,6 @@ A modern, interactive chess game built with vanilla HTML, CSS, and JavaScript. P
 
 3. **Start playing!**
    - Navigate to `http://localhost:8000` in your browser
-
-## 📁 Project Structure
-
-```
-chess-game/
-├── index.html      # Main HTML structure
-├── styles.css      # All styling and design system
-├── main.js         # Game logic and interactions
-└── README.md       # Project documentation
-```
-
-## 🎯 How to Play
-
-1. **Starting the Game** - White moves first
-2. **Making Moves** - Click a piece to see valid moves, then click a destination square
-3. **Capturing** - Move to an opponent's square to capture their piece
-4. **Undo** - Click "Undo Move" to revert your last move
-5. **New Game** - Click "New Game" to reset the board
-
-## 🎨 Design System
-
-The game uses a custom design system with:
-- CSS custom properties for easy theming
-- Light and dark mode support
-- Responsive breakpoints for mobile devices
-- Consistent spacing, typography, and color palette
-
-## 🤖 AI Integration (Coming Soon)
-
-The game includes a dedicated AI section ready for integration. To add a chess engine:
-
-1. Choose your chess engine (Stockfish, chess.js, custom algorithm)
-2. Implement the AI logic in the designated section in `main.js`
-3. Connect the AI to make moves after the player's turn
-4. Update the AI placeholder in the UI
-
-Example integration points are marked with comments in the code.
-
-## 🌐 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and import your repository
-3. Vercel will auto-detect the static site
-4. Deploy - your site will be live instantly!
-
-### Deploy to GitHub Pages
-
-1. Go to your repository Settings → Pages
-2. Select your branch (usually `main`) and root folder
-3. Save - your site will be live at `username.github.io/chess-algorithm`
 
 ## 🛠️ Technologies Used
 
