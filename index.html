@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>♟️ Chess Game</h1>
+    </div>
+
+    <div class="game-info">
+        <div class="turn-indicator">
+            <div class="turn-dot"></div>
+            <span id="turn-display">White to move</span>
+        </div>
+        <div class="status-message" id="status-message">Game in progress</div>
+    </div>
+
+    <div class="chess-container">
+        <div class="board-container">
+            <div class="chessboard" id="chessboard"></div>
+            <div class="controls">
+                <button class="btn btn--primary" onclick="resetGame()">New Game</button>
+                <button class="btn btn--secondary" onclick="undoMove()">Undo Move</button>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <h2>Captured Pieces</h2>
+            <div>
+                <div class="captured-pieces" id="captured-white"></div>
+                <div class="captured-pieces" id="captured-black"></div>
+            </div>
+
+            <h2 style="margin-top: var(--space-24);">Move History</h2>
+            <div class="move-history" id="move-history"></div>
+
+            <div class="ai-section">
+                <h2>AI Opponent</h2>
+                <div class="ai-placeholder">
+                    <p>🤖 AI integration space</p>
+                    <p style="margin-top: var(--space-8);">Connect your chess engine here</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
