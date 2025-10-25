@@ -69,7 +69,7 @@ The game uses a custom design system with:
 - Responsive breakpoints for mobile devices
 - Consistent spacing, typography, and color palette
 
-## 🤖 AI Integration (Coming Soon)
+## 🤖 AI Integration (Algorithm)
 
 The game includes a dedicated AI section ready for integration. To add a chess engine:
 
@@ -79,21 +79,6 @@ The game includes a dedicated AI section ready for integration. To add a chess e
 4. Update the AI placeholder in the UI
 
 Example integration points are marked with comments in the code.
-
-## 🌐 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and import your repository
-3. Vercel will auto-detect the static site
-4. Deploy - your site will be live instantly!
-
-### Deploy to GitHub Pages
-
-1. Go to your repository Settings → Pages
-2. Select your branch (usually `main`) and root folder
-3. Save - your site will be live at `username.github.io/chess-algorithm`
 
 ## 🛠️ Technologies Used
 
