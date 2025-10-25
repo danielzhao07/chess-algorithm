@@ -95,13 +95,9 @@ Example integration points are marked with comments in the code.
 2. Select your branch (usually `main`) and root folder
 3. Save - your site will be live at `username.github.io/chess-game`
 
-### Deploy to Netlify
-
-1. Drag and drop your project folder to [netlify.com](https://netlify.com)
-2. Or connect your GitHub repository for auto-deployment
-
 ## 🛠️ Technologies Used
 
+- **Vercel** - Scalable Project Deployment
 - **HTML5** - Semantic structure
 - **CSS3** - Modern styling with custom properties and grid layout
 - **JavaScript (ES6+)** - Game logic and interactivity
@@ -134,7 +130,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👤 Author
 
-Your Name - [@yourusername](https://github.com/yourusername)
+Your Name - [@JummyJoeJackson](https://github.com/JummyJoeJackson)
 
 ## 🙏 Acknowledgments
 
