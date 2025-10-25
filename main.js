@@ -34,6 +34,12 @@ let isCheck = false;
 let isCheckmate = false;
 let isStalemate = false;
 
+// Puzzle state
+let currentPuzzle = null;
+let puzzleMode = false;
+let puzzleSolution = null;
+let puzzleHint = null;
+
 // Initialize the board with starting positions
 function initializeBoard() {
     board = Array(8).fill(null).map(() => Array(8).fill(null));
@@ -702,6 +708,165 @@ document.getElementById('undo-btn').addEventListener('click', undoMove);
 initializeBoard();
 createBoard();
 updateGameInfo();
+
+// ============================================
+// CHESS PUZZLE FUNCTIONALITY
+// ============================================
+
+// Predefined chess puzzles with different themes
+const PUZZLE_DATABASE = [
+    {
+        id: 1,
+        theme: "Checkmate in 1",
+        description: "Find the checkmate in one move!",
+        hint: "Look for a move that puts the king in check with no escape.",
+        position: [
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null]
+        ],
+        solution: { from: { row: 0, col: 0 }, to: { row: 0, col: 0 } },
+        toMove: 'white'
+    },
+    {
+        id: 2,
+        theme: "Tactical combination",
+        description: "Find the winning combination!",
+        hint: "Look for a sequence that wins material or creates a decisive advantage.",
+        position: [
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null]
+        ],
+        solution: { from: { row: 0, col: 0 }, to: { row: 0, col: 0 } },
+        toMove: 'white'
+    },
+    {
+        id: 3,
+        theme: "Defensive move",
+        description: "Find the best defensive move!",
+        hint: "Look for a move that prevents the opponent's threat.",
+        position: [
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null]
+        ],
+        solution: { from: { row: 0, col: 0 }, to: { row: 0, col: 0 } },
+        toMove: 'white'
+    }
+];
+
+// Generate a random puzzle
+function generatePuzzle() {
+    // Reset game state
+    resetGame();
+    
+    // Select a random puzzle from the database
+    const randomIndex = Math.floor(Math.random() * PUZZLE_DATABASE.length);
+    currentPuzzle = PUZZLE_DATABASE[randomIndex];
+    
+    // Set up the puzzle position
+    setupPuzzlePosition();
+    
+    // Enable puzzle mode
+    puzzleMode = true;
+    puzzleSolution = currentPuzzle.solution;
+    puzzleHint = currentPuzzle.hint;
+    
+    // Update UI
+    document.getElementById('puzzle-info').style.display = 'block';
+    document.getElementById('puzzle-description').textContent = currentPuzzle.description;
+    
+    // Set the correct turn
+    currentTurn = currentPuzzle.toMove;
+    document.getElementById('current-turn').textContent = currentPuzzle.toMove.charAt(0).toUpperCase() + currentPuzzle.toMove.slice(1);
+    
+    updateDisplay();
+}
+
+// Set up the puzzle position on the board
+function setupPuzzlePosition() {
+    // Clear the board
+    board = Array(8).fill(null).map(() => Array(8).fill(null));
+    
+    // For now, create a simple tactical puzzle
+    // This is a basic "checkmate in 1" puzzle
+    board[7][4] = { type: 'king', color: 'white' };    // White king
+    board[6][3] = { type: 'pawn', color: 'white' };    // White pawn
+    board[6][5] = { type: 'pawn', color: 'white' };    // White pawn
+    board[0][4] = { type: 'king', color: 'black' };   // Black king
+    board[1][3] = { type: 'rook', color: 'black' };    // Black rook
+    board[1][5] = { type: 'rook', color: 'black' };    // Black rook
+    
+    // Update king positions
+    kingPositions = { white: { row: 7, col: 4 }, black: { row: 0, col: 4 } };
+    
+    // Set the solution (this is a simple example - in a real puzzle, this would be calculated)
+    puzzleSolution = { from: { row: 6, col: 3 }, to: { row: 5, col: 3 } };
+    puzzleHint = "Move the pawn to create a discovered check!";
+}
+
+// Show hint for the current puzzle
+function showHint() {
+    if (currentPuzzle && puzzleHint) {
+        alert(`Hint: ${puzzleHint}`);
+    }
+}
+
+// Show solution for the current puzzle
+function showSolution() {
+    if (currentPuzzle && puzzleSolution) {
+        const from = puzzleSolution.from;
+        const to = puzzleSolution.to;
+        const fromSquare = String.fromCharCode(97 + from.col) + (8 - from.row);
+        const toSquare = String.fromCharCode(97 + to.col) + (8 - to.row);
+        alert(`Solution: Move from ${fromSquare} to ${toSquare}`);
+    }
+}
+
+// Generate next puzzle
+function nextPuzzle() {
+    generatePuzzle();
+}
+
+// Check if the player's move matches the puzzle solution
+function checkPuzzleSolution(fromRow, fromCol, toRow, toCol) {
+    if (!puzzleMode || !puzzleSolution) return false;
+    
+    return puzzleSolution.from.row === fromRow && 
+           puzzleSolution.from.col === fromCol &&
+           puzzleSolution.to.row === toRow && 
+           puzzleSolution.to.col === toCol;
+}
+
+// Override the makeMove function to check puzzle solutions
+const originalMakeMove = makeMove;
+makeMove = function(fromRow, fromCol, toRow, toCol) {
+    if (puzzleMode && checkPuzzleSolution(fromRow, fromCol, toRow, toCol)) {
+        // Correct solution!
+        alert('Correct! Well done! 🎉');
+        puzzleMode = false;
+        document.getElementById('puzzle-info').style.display = 'none';
+    }
+    
+    // Call the original makeMove function
+    return originalMakeMove(fromRow, fromCol, toRow, toCol);
+};
 
 // ============================================
 // AI INTEGRATION PLACEHOLDER

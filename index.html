@@ -26,6 +26,7 @@
             <div class="controls">
                 <button class="btn btn--primary" onclick="resetGame()">New Game</button>
                 <button class="btn btn--secondary" onclick="undoMove()">Undo Move</button>
+                <button class="btn btn--puzzle" onclick="generatePuzzle()">Random Puzzle</button>
             </div>
         </div>
 
@@ -38,6 +39,18 @@
 
             <h2 style="margin-top: var(--space-24);">Move History</h2>
             <div class="move-history" id="move-history"></div>
+
+            <div class="puzzle-section">
+                <h2>Chess Puzzle</h2>
+                <div class="puzzle-info" id="puzzle-info" style="display: none;">
+                    <p id="puzzle-description">Find the best move!</p>
+                    <div class="puzzle-controls">
+                        <button class="btn btn--small" onclick="showHint()">Hint</button>
+                        <button class="btn btn--small" onclick="showSolution()">Solution</button>
+                        <button class="btn btn--small" onclick="nextPuzzle()">Next Puzzle</button>
+                    </div>
+                </div>
+            </div>
 
             <div class="ai-section">
                 <h2>AI Opponent</h2>

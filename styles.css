@@ -311,6 +311,48 @@
       background: var(--color-surface);
   }
 
+  .btn--puzzle {
+      background: linear-gradient(135deg, var(--color-teal-500), var(--color-teal-600));
+      color: var(--color-cream-50);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn--puzzle:hover {
+      background: linear-gradient(135deg, var(--color-teal-600), var(--color-teal-500));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn--small {
+      padding: var(--space-8) var(--space-12);
+      font-size: var(--font-size-sm);
+  }
+
+  .puzzle-section {
+      margin-top: var(--space-24);
+      padding-top: var(--space-24);
+      border-top: 1px solid var(--color-border);
+  }
+
+  .puzzle-info {
+      padding: var(--space-16);
+      background: var(--color-background);
+      border-radius: var(--radius-base);
+      border: 1px solid var(--color-border);
+  }
+
+  .puzzle-controls {
+      display: flex;
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+      flex-wrap: wrap;
+  }
+
+  .puzzle-controls .btn {
+      flex: 1;
+      min-width: 60px;
+  }
+
   @media (max-width: 768px) {
       .chess-container {
           flex-direction: column;
